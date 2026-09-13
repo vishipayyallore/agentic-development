@@ -2,6 +2,10 @@
 
 An AI agent operates through a continuous feedback loop: it observes its environment, decides what to do, acts through an available tool, and evaluates the result. The outcome becomes part of the next observation.
 
+![Agentic AI execution loop showing observe, think and plan, act with a tool, and evaluate stages](../docs/images/01-AgenticAIExecutionLoop.PNG)
+
+Text-rendered version:
+
 ```mermaid
 flowchart LR
     observe[Observe environment] --> plan[Think and plan]

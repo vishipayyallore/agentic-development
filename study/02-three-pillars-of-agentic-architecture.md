@@ -4,6 +4,10 @@ A useful way to reason about an agentic system is through three interconnected c
 
 This is a conceptual model rather than a universal industry standard. Real systems may divide these responsibilities differently, but each capability still needs an explicit owner.
 
+![Three pillars of agentic architecture: context, memory, and automation with governance](../docs/images/02-ThreePillarsOfAgenticArchitecture.PNG)
+
+Text-rendered version:
+
 ```mermaid
 flowchart TB
     system[Agentic system]
