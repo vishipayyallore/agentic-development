@@ -1,5 +1,13 @@
 # Agentic Development
 
+![Status](https://img.shields.io/badge/Status-Actively%20Learning-0EA5E9)
+![Agents](https://img.shields.io/badge/Agents-AI%20Systems-14B8A6)
+![Tools](https://img.shields.io/badge/Tools-Function%20Calling-22C55E)
+![Memory](https://img.shields.io/badge/Memory-Context%20Design-A855F7)
+![Planning](https://img.shields.io/badge/Planning-ReAct%20Loop-F59E0B)
+![Multi-Agent](https://img.shields.io/badge/Multi--Agent-Collaboration-EC4899)
+![Research](https://img.shields.io/badge/Research-Learning%20Path-F97316)
+
 A structured learning repository for **Agentic Development** — the engineering discipline of building AI systems that can reason, use tools, interact with their environment, execute multi-step tasks, and adapt based on results.
 
 This repository is my **single source of truth** for learning Agentic Development through books, official documentation, research, and video courses.
