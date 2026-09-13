@@ -44,8 +44,11 @@ jobs:
           import ast
           from pathlib import Path
 
-          files = sorted(Path(folder).rglob('*.py') for folder in ('src', 'scripts/py'))
-          paths = [path for group in files for path in group]
+          paths = sorted(
+              path
+              for folder in ('src', 'scripts/py')
+              for path in Path(folder).rglob('*.py')
+          )
           for path in paths:
               ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
           print(f'Validated {len(paths)} Python file(s).')
