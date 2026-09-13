@@ -1,0 +1,63 @@
+name: Python Quality
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**/*.py'
+      - 'scripts/py/**/*.py'
+      - 'notebooks/**/*.ipynb'
+      - '.github/workflows/ci-python.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**/*.py'
+      - 'scripts/py/**/*.py'
+      - 'notebooks/**/*.ipynb'
+      - '.github/workflows/ci-python.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: python-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate Python and notebooks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check Python syntax
+        shell: python
+        run: |
+          import ast
+          from pathlib import Path
+
+          files = sorted(Path(folder).rglob('*.py') for folder in ('src', 'scripts/py'))
+          paths = [path for group in files for path in group]
+          for path in paths:
+              ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
+          print(f'Validated {len(paths)} Python file(s).')
+
+      - name: Validate notebook JSON
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          paths = sorted(Path('notebooks').rglob('*.ipynb'))
+          for path in paths:
+              with path.open(encoding='utf-8') as notebook:
+                  json.load(notebook)
+          print(f'Validated {len(paths)} notebook(s).')
