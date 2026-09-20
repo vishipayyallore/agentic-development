@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^npx --yes markdownlint-cli \"\\*\\*/\\*\\.md\" --disable MD013 MD036$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^npx --yes markdownlint-cli \"\\*\\*/\\*\\.md\" --disable MD013 MD036; Write-Output \"EXIT_CODE=\\$LASTEXITCODE\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
